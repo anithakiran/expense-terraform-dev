@@ -135,6 +135,6 @@ resource "aws_security_group_rule" "ansible_public" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
-  security_group_id = module.frontend.sg_id
+  security_group_id = module.ansible.sg_id
 }
 
