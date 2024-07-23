@@ -55,7 +55,7 @@ module "frontend" {
 
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
-  version = "~> 3.0"
+  version = "~> 2.0"
 
   zone_name = var.zone_name
 
@@ -63,7 +63,7 @@ module "records" {
     {
       name    = "backend"
       type    = "A"
-      ttl = 1
+      ttl     = 1
       records = [
         module.backend.private_ip
       ]
@@ -71,19 +71,18 @@ module "records" {
     {
       name    = "frontend"
       type    = "A"
-      ttl = 1
+      ttl     = 1
       records = [
         module.frontend.private_ip
       ]
     },
     {
-      name    = ""
+      name    = "" 
       type    = "A"
-      ttl = 1
+      ttl     = 1
       records = [
         module.frontend.public_ip
       ]
-    }
-
+    },
   ]
 }
